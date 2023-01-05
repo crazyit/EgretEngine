@@ -1,5 +1,5 @@
 ﻿{
-    "manifest_version": 2,
+    "manifest_version": 3,
     "name": "Egret Inspector",
     "description": "Egret Chrome Debug Tool",
     "version": "2.5.5",
@@ -15,18 +15,19 @@
         }
     ],
     "background": {
-        "scripts": [ "backgroudScripts.min.js" ]
+        "service_worker": "backgroudScripts.min.js" 
     },
     "permissions": [
-        "*://*/*",
         "system.cpu",
         "tabs",
         "storage",
-        "nativeMessaging"
+        "nativeMessaging",
+        "scripting"
     ],
-    "web_accessible_resources": [
-        "*/*",
-        "*"
+    "web_accessible_resources": [{
+        "resources":["injectScripts.min.js","http://*/*", "https://*/*"],
+        "matches":["http://*/*", "https://*/*"]
+    }
     ],
     "icons": {
         
